@@ -1,0 +1,204 @@
+@import './_reset.sass'
+@import './_globals.sass'
+@import './_mixins'
+@import './_classes'
+
+.controlPanel
+  position: fixed
+  width: 64px
+  height: 64px
+  border-radius: 50%
+  border: 2px solid #fff
+  overflow: hidden
+  top: 3rem
+  right: 3rem
+  transition: 0.2s
+  background-color: #fff
+  display: flex
+  align-items: center
+  flex-direction: column
+  z-index: $firstIndex
+  &.opened
+    border-radius: $borderRadius
+    height: 170px
+  .profile
+    width: 64px
+    height: 64px
+    flex: 1
+    img
+      width: 100%
+      height: auto
+      cursor: pointer
+  .buttons
+    flex: 1
+    ul
+      li
+        padding: 10px
+        text-align: center
+        img
+          width: 20px
+          cursor: pointer
+
+.searchBar
+  position: fixed
+  top: 50px
+  left: 50%
+  margin-left: -125px
+  width: 250px
+  height: 30px
+  cursor: pointer
+  border-radius: $roundedBorders
+  div
+    width: 100%
+    height: 100%
+    position: relative
+    &::before
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      content: ' '
+      @include background
+      border-radius: $roundedBorders
+    &::after
+      position: absolute
+      top: 0
+      height: 30px
+      width: 30px
+      left: 10px
+      background-image: url('../assets/icon@2x.png')
+      content: ''
+      background-size: 70%
+      background-repeat: no-repeat
+      background-position: center
+    input
+      width: 100%
+      height: 100%
+      border-radius: 15px
+      background: transparent
+      @include background
+      border: none
+      color: #fff
+      padding-left: 40px
+      position: relative
+      text-transform: capitalize
+      cursor: pointer
+      font:
+        size: 17px
+        family: 'Calibri', sans-serif
+        weight: 700
+
+.marker
+  .marker-container
+    border: 3px solid #fff
+    border-radius: $borderRadius
+    z-index: 50
+    position: relative
+    box-shadow: 0px 3px 2px 0px
+    width: 100%
+    height: 100%
+    overflow: hidden
+    border-radius: 5px
+    img
+      height: 100%
+      width: auto
+  &::before
+    position: absolute
+    content: ' '
+    bottom: -20px
+    left: 50%
+    margin-left: -5px
+    width: 0
+    height: 0
+    border:
+      style: solid
+      width: 20px 5px 0 5px
+      color: #fff transparent transparent transparent
+
+.trip
+  z-index: $thirdIndex
+  .trip-popup
+    height: auto
+    .header
+      input
+        display: table
+        width: auto
+        margin: 0 auto
+        color: #ffffff
+    input
+      display: table
+      width: auto
+      margin: 10px auto
+    .body
+      .title
+        p
+          font-size: 25px
+          margin-bottom: 20px
+      img
+        width: 100%
+        height: auto
+      input
+        width: 100%
+        background-color: transparent
+        border: none
+        border-bottom: 1px solid $grey
+        color: #fff
+        border-radius: 0
+        font-size: 19px
+      label
+        span
+          color: red
+        width: 100%
+        text-transform: capitalize
+        font: 
+          family: 'Calibri', sans-serif
+          size: 22px
+        color: #fff
+      .hotspot
+        margin: 5px 0 15px
+        border-bottom: 1px solid #fff
+        display: table
+        width: 100%
+        p
+          color: #fff
+          font:
+            size: 19px
+
+      .uploadMoreImages
+        @include clearfix
+        label
+          width: 170px
+          color: #000
+          font:
+            family: 'Calibri', sans-serif
+            weight: 900
+            size: 17px
+        input
+          display: table
+          margin: 0 auto
+      .moreImages
+        img
+          width: calc((25rem - 16px) / 4 - 4px)
+          height: auto
+          margin: 2px
+
+/* mobile | portrait */
+@media (max-width: 768px)
+  .searchBar
+    top: 20px
+    width: calc(100vw - 50px)
+    margin-left: calc((-100vw + 50px) / 2)
+
+  .controlPanel
+    top: unset
+    bottom: 20px
+    right: 20px
+    flex-direction: column-reverse
+
+  .addTrip
+    top: 15px
+    left: 15px
+    width: calc(100vw - 30px)
+    height: calc(100vh - 30px)
+    overflow: scroll

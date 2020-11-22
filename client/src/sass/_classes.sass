@@ -1,0 +1,181 @@
+@include width
+
+.float-left
+  float: left
+
+.float-right
+  float: right
+
+.d-flex
+  display: flex !important
+  align-items: center
+
+.flex-1
+  flex: 1
+
+.clearfix
+  clear: both
+  display: table
+
+.zIndex-1
+  z-index: -1
+
+.trip
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  box-sizing: border-box
+  .trip-popup
+    position: absolute
+    top: 1.5rem
+    left: 1.5rem
+    width: 25rem
+    max-width: 400px
+    height: calc(100vh - 3rem)
+    min-height: calc(100vh - 3rem)
+    max-height: calc(100vh - 3rem)
+    z-index: $secondIndex
+    transition: 0.4s
+    border-radius: $roundedBorders
+    @include background
+    @media (max-width: 768px)
+      top: 1rem
+      left: 1rem
+      width: calc(100vw - 2rem)
+      height: calc(100vh - 2rem)
+      max-width: calc(100vh - 2rem)
+    form, & > div
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      .header
+        border-top-left-radius: $roundedBorders
+        border-top-right-radius: $roundedBorders
+        border-bottom-left-radius: 4px !important
+        border-bottom-right-radius: 4px
+        position: relative
+        & + .body
+          margin-top: 15px
+        padding: 25px 15px 20px
+        width: 100%
+        display: table
+        flex-grow: 0
+        @include background
+        hr
+          border-color: #fff
+        h2, h3, p
+          color: #fff
+          font-family: 'Calibri', sans-serif
+          width: 100%
+          text-align: center
+          margin: 0
+        h2
+          font-size: 35px
+          line-height: 50px
+          font-weight: 900
+        h3
+          font-size: 19px
+          line-height: 27px
+          color: $neon
+          font-weight: 300
+        p
+          font-size: 15px
+          line-height: 15px
+          font-weight: 300
+        img
+          width: 100%
+        
+      .body
+        flex-grow: 3
+        padding: 0 5px
+        overflow: hidden
+        overflow-y: scroll
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar
+          display: none
+        p
+          color: #ffffff
+          width: 100%
+          font-family: 'Calibri', sans-serif
+          font-size: 17px
+          padding: 0
+          margin: 5px 0
+      .footer
+        @include background
+        margin-top: 15px
+        flex-grow: 0
+        border-top-left-radius: 4px
+        border-top-right-radius: 4px
+        border-bottom-left-radius: $roundedBorders
+        border-bottom-right-radius: $roundedBorders
+        text-align: center
+        p
+          color: #fff
+        .basic-button
+          color: #000000
+          background-color: #ffffff
+
+.basic-button
+  display: table
+  margin: 15px auto
+  padding: 10px
+  background-color: $neon
+  border-radius: $borderRadius
+  width: 170px !important
+  color: #000000 !important
+  text-align: center
+  border: 0
+  text-transform: none !important
+  cursor: pointer
+  font:
+    family: 'Calibri', sans-serif !important
+    weight: 900 !important
+    size: 17px !important
+
+.pnlm-pointer
+  &:before
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 20px 0 20px;
+    border-color: #ffffff transparent transparent transparent;
+    position: absolute
+    bottom: -13px
+    left: calc(50% - 20px)
+
+.hotSpot-container
+  width: 4rem
+  height: 4rem
+  border: 2px solid #ffffff
+  border-radius: 50%
+  overflow: hidden
+  position: relative
+  
+  img
+    width: 100%
+    height: 100%
+
+input[type="file"].hide 
+  border: 0
+  clip: rect(0, 0, 0, 0)
+  height: 1px
+  overflow: hidden
+  padding: 0
+  position: absolute !important
+  white-space: nowrap
+  width: 1px
+
+.danger
+  border-color: red !important
+  &-text
+    color: red !important
